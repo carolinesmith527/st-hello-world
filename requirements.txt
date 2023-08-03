@@ -63,6 +63,7 @@ pympler
 pyrsistent
 python-dateutil
 python-dotenv
+pytorch
 pytz-deprecation-shim
 pytz
 pyyaml
