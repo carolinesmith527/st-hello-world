@@ -17,26 +17,26 @@ import streamlit as st
 
 # inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
 # Streamlit encourages well-structured code, like starting execution in a main() function.
-def main():
-    # Render the readme as markdown using st.markdown.
-    # readme_text = st.markdown(get_file_content_as_string("instructions.md"))
+# def main():
+# Render the readme as markdown using st.markdown.
+# readme_text = st.markdown(get_file_content_as_string("instructions.md"))
 
-    # Download external dependencies.
-    # for filename in EXTERNAL_DEPENDENCIES.keys():
-    #     download_file(filename)
+# Download external dependencies.
+# for filename in EXTERNAL_DEPENDENCIES.keys():
+#     download_file(filename)
 
-    # Once we have the dependencies, add a selector for the app mode on the sidebar.
-    st.sidebar.title("What to do")
-    app_mode = st.sidebar.selectbox("Choose the app mode",
-        ["Show instructions", "Run the app"])
-    if app_mode == "Show instructions":
-        st.sidebar.success('To continue select "Run the app".')
-    # elif app_mode == "Show the source code":
-    #     readme_text.empty()
-    #     st.code(get_file_content_as_string("streamlit_app.py"))
-    elif app_mode == "Run the app":
-        readme_text.empty()
-        run_the_app()
+# Once we have the dependencies, add a selector for the app mode on the sidebar.
+st.sidebar.title("What to do")
+app_mode = st.sidebar.selectbox("Choose the app mode",
+    ["Show instructions", "Run the app"])
+if app_mode == "Show instructions":
+    st.sidebar.success('To continue select "Run the app".')
+# elif app_mode == "Show the source code":
+#     readme_text.empty()
+#     st.code(get_file_content_as_string("streamlit_app.py"))
+elif app_mode == "Run the app":
+    readme_text.empty()
+    run_the_app()
       
 # This is the main app app itself, which appears when the user selects "Run the app".
 def run_the_app():
@@ -50,5 +50,5 @@ def run_the_app():
     embeddingsdf = load_metadata(inputf)
     st.write('## This is our Corpus:', embeddingsdf[:1000])
 inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
