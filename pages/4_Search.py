@@ -43,12 +43,13 @@ def run_the_app():
     # To make Streamlit fast, st.cache allows us to reuse computation across runs.
     # In this common pattern, we download data from an endpoint only once.
     @st.experimental_memo
+    inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
     def load_metadata(url):
         return pd.read_csv(url)
     @st.cache()
     # st.write('Importing Data...')
     embeddingsdf = load_metadata(inputf)
     st.write('## This is our Corpus:', embeddingsdf[:1000])
-inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
+# inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
 # if __name__ == "__main__":
 #     main()
