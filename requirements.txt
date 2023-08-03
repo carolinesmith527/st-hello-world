@@ -72,7 +72,7 @@ requests
 rich
 scikit-learn
 scipy
-sentence-transformers
+sentence-transformers===2.2.2
 sentencepiece
 setuptools
 six
