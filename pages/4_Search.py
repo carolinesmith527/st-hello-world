@@ -46,7 +46,7 @@ def run_the_app():
     def load_metadata(url):
         return pd.read_csv(url)
     @st.cache()
-    if inputf != "":
+    if inputf:
         inputfile = readData(inputf)
         st.write('Importing Data...')
         embeddingsdf = load_metadata(inputf)
