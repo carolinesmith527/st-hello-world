@@ -23,7 +23,7 @@ def readcsvData(input):
     return data_d
     
 def get_data():
-  inputf = ''
+  inputf = 'formatted_corpus.csv'
   if inputf != '':
     inputfile = readData(inputf)
     st.write('Importing Data...')
