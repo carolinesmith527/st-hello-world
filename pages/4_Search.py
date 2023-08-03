@@ -46,13 +46,14 @@ def run_the_app():
     
     def load_metadata():
         inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
-        return pd.read_csv()
+        return pd.read_csv(inputf)
     
     # st.write('Importing Data...')
     try:
         embeddingsdf = load_metadata()
         st.write('## This is our Corpus:', embeddingsdf[:1000])
-    
+    else:
+        st.error('Uh-oh!')
 # inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
 # if __name__ == "__main__":
 #     main()
