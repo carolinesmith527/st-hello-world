@@ -90,6 +90,7 @@ torchvision
 tornado
 tqdm
 transformers
+tensorflow
 triton
 typing-extensions
 typing-inspect
