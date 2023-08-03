@@ -46,11 +46,10 @@ def run_the_app():
     def load_metadata(url):
         return pd.read_csv(url)
     @st.cache()
-    if inputf:
-        inputfile = readData(inputf)
-        st.write('Importing Data...')
-        embeddingsdf = load_metadata(inputf)
-        st.write('## This is our Corpus:', embeddingsdf[:1000])
+    inputfile = readData(inputf)
+    st.write('Importing Data...')
+    embeddingsdf = load_metadata(inputf)
+    st.write('## This is our Corpus:', embeddingsdf[:1000])
 
 if __name__ == "__main__":
     main()
