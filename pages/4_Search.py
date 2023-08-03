@@ -46,7 +46,6 @@ def run_the_app():
     def load_metadata(url):
         return pd.read_csv(url)
     @st.cache()
-    inputfile = readData(inputf)
     st.write('Importing Data...')
     embeddingsdf = load_metadata(inputf)
     st.write('## This is our Corpus:', embeddingsdf[:1000])
