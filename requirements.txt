@@ -1,4 +1,4 @@
-sentence-transformers==2.2.2
-sentence_transformers
+sentence-transformers
 rank_bm25
 sklearn
+streamlit
