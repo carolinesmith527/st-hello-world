@@ -12,27 +12,45 @@ from sentence_transformers import SentenceTransformer, CrossEncoder, util
 import gzip
 import os
 import torch
+import os, urllib, cv2
 
-def readcsvData(input):
-  data_d = {}
-  # data_d
-  with open(input) as f:
-    reader = csv.DictReader(f)
-    for row in reader:
-      # print(row)
-      # clean_row = [(k, preProcess(v)) for (k, v) in row.items()]
-      # print(list(row.keys())[0])
-      id_name = list(row.keys())[0]
-      row_id = int(row[id_name])
-      data_d[row_id] = dict(row.items())
-    return data_d
-    
-def get_data():
-  inputf = 'https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv'
-  if inputf != '':
-    inputfile = readData(inputf)
-    st.write('Importing Data...')
-    inputfile = readcsvData(inputf)
-    embeddingsdf = pd.DataFrame.from_dict(inputfile,orient='index')
-    embeddingsdf = embeddingsdf2.drop(columns='')
-    st.write(embeddingsdf)
+
+inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
+# Streamlit encourages well-structured code, like starting execution in a main() function.
+def main():
+    # Render the readme as markdown using st.markdown.
+    # readme_text = st.markdown(get_file_content_as_string("instructions.md"))
+
+    # Download external dependencies.
+    # for filename in EXTERNAL_DEPENDENCIES.keys():
+    #     download_file(filename)
+
+    # Once we have the dependencies, add a selector for the app mode on the sidebar.
+    st.sidebar.title("What to do")
+    app_mode = st.sidebar.selectbox("Choose the app mode",
+        ["Show instructions", "Run the app"])
+    if app_mode == "Show instructions":
+        st.sidebar.success('To continue select "Run the app".')
+    # elif app_mode == "Show the source code":
+    #     readme_text.empty()
+    #     st.code(get_file_content_as_string("streamlit_app.py"))
+    elif app_mode == "Run the app":
+        readme_text.empty()
+        run_the_app()
+      
+# This is the main app app itself, which appears when the user selects "Run the app".
+def run_the_app():
+    # To make Streamlit fast, st.cache allows us to reuse computation across runs.
+    # In this common pattern, we download data from an endpoint only once.
+    @st.experimental_memo
+    def load_metadata(url):
+        return pd.read_csv(url)
+    @st.cache()
+    if inputf != "":
+        inputfile = readData(inputf)
+        st.write('Importing Data...')
+        embeddingsdf = load_metadata(inputf)
+        st.write('## This is our Corpus:', embeddingsdf[:1000])
+
+if __name__ == "__main__":
+    main()
