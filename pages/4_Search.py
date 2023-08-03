@@ -7,6 +7,11 @@ Next, we use a more powerful CrossEncoder (cross_encoder = CrossEncoder('cross-e
 import os
 import pandas as pd
 import csv
+import json
+from sentence_transformers import SentenceTransformer, CrossEncoder, util
+import gzip
+import os
+import torch
 
 def readcsvData(input):
   data_d = {}
@@ -23,8 +28,11 @@ def readcsvData(input):
     return data_d
     
 def get_data():
-  inputf = 'formatted_corpus.csv'
+  inputf = 'https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv'
   if inputf != '':
     inputfile = readData(inputf)
     st.write('Importing Data...')
     inputfile = readcsvData(inputf)
+    embeddingsdf = pd.DataFrame.from_dict(inputfile,orient='index')
+    embeddingsdf = embeddingsdf2.drop(columns='')
+    st.write(embeddingsdf)
