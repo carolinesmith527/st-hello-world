@@ -52,8 +52,7 @@ def run_the_app():
     try:
         embeddingsdf = load_metadata()
         st.write('## This is our Corpus:', embeddingsdf[:1000])
-    except:
-        except URLError as e:
+    except URLError as e:
             st.error(
                 """
                 **This demo requires internet access.**
