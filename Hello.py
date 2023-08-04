@@ -65,7 +65,7 @@ import json
 # from sentence_transformers import SentenceTransformer, CrossEncoder, util
 import gzip
 import os
-import torch
+# import torch
 import os, urllib, cv2
 import streamlit as st
 st.markdown(
