@@ -46,7 +46,7 @@ rich==12.6.0
 scikit-learn
 scipy==1.11.1
 semver==2.13.0
-sentence-transformers==v2.2.2 @ https://github.com/UKPLab/sentence-transformers/archive/refs/tags/v2.2.2.tar.gz
+sentence-transformers==v2.2.2
 sentencepiece
 six==1.16.0
 smmap==5.0.0
