@@ -69,6 +69,30 @@ import os
 import os, urllib
 # , cv2
 import streamlit as st
+
+# This is the main app app itself, which appears when the user selects "Run the app".
+def run_the_app():
+    # To make Streamlit fast, st.cache allows us to reuse computation across runs.
+    # In this common pattern, we download data from an endpoint only once.
+    @st.cache()
+    
+    def load_metadata():
+        inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
+        return pd.read_csv(inputf)
+    
+    # st.write('Importing Data...')
+    try:
+        embeddingsdf = load_metadata()
+        st.write('## This is our Corpus:', embeddingsdf[:1000])
+    except URLError as e:
+            st.error(
+                """
+                **This demo requires internet access.**
+                Connection error: %s
+            """
+                % e.reason
+            )
+        
 st.markdown(
 """You can input a query or a question. The script then uses semantic search to find relevant passages in Simple English Wikipedia (as it is smaller and fits better in RAM).
 
@@ -99,28 +123,7 @@ elif app_mode == "Run the app":
     # readme_text.empty()
     run_the_app()
       
-# This is the main app app itself, which appears when the user selects "Run the app".
-def run_the_app():
-    # To make Streamlit fast, st.cache allows us to reuse computation across runs.
-    # In this common pattern, we download data from an endpoint only once.
-    @st.cache()
-    
-    def load_metadata():
-        inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
-        return pd.read_csv(inputf)
-    
-    # st.write('Importing Data...')
-    try:
-        embeddingsdf = load_metadata()
-        st.write('## This is our Corpus:', embeddingsdf[:1000])
-    except URLError as e:
-            st.error(
-                """
-                **This demo requires internet access.**
-                Connection error: %s
-            """
-                % e.reason
-            )
+
             
 # inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
 # if __name__ == "__main__":
