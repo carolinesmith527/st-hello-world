@@ -77,11 +77,11 @@ def run_the_app():
     
     # st.write('Importing Data...')
     try:
-        @st.cache()
+        
         # load the dataset(knowledge base)
         embeddingsdf = pd.read_csv("./data/formatted_corpus.csv")
         st.write('## This is our Corpus:', embeddingsdf[:1000])
-        
+        @st.cache()
     except URLError as e:
             st.error(
                 """
