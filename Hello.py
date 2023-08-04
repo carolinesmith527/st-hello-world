@@ -74,9 +74,10 @@ import streamlit as st
 def run_the_app():
     # To make Streamlit fast, st.cache allows us to reuse computation across runs.
     # In this common pattern, we download data from an endpoint only once.
-    @st.cache()
+    
     # st.write('Importing Data...')
     try:
+        @st.cache()
         # load the dataset(knowledge base)
         embeddingsdf = pd.read_csv("./data/formatted_corpus.csv")
         st.write('## This is our Corpus:', embeddingsdf[:1000])
