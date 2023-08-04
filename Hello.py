@@ -39,16 +39,6 @@ For semantic search, we use SentenceTransformer('multi-qa-MiniLM-L6-cos-v1') and
 
 Next, we use a more powerful CrossEncoder (cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')) that scores the query and all retrieved passages for their relevancy. The cross-encoder further boost the performance, especially when you search over a corpus for which the bi-encoder was not trained for."""
 )
-# inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
-# Streamlit encourages well-structured code, like starting execution in a main() function.
-# def main():
-# Render the readme as markdown using st.markdown.
-# readme_text = st.markdown(get_file_content_as_string("instructions.md"))
-
-# Download external dependencies.
-# for filename in EXTERNAL_DEPENDENCIES.keys():
-#     download_file(filename)
-
 
 # Once we have the dependencies, add a selector for the app mode on the sidebar.
 st.sidebar.title("What to do")
@@ -63,8 +53,5 @@ elif app_mode == "Run the app":
     # readme_text.empty()
     run_the_app()
       
-
-            
-# inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
 # if __name__ == "__main__":
 #     main()
