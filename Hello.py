@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 import subprocess
 
-packages = str(subprocess.run('pip list', capture_output=True))
-st.markdown(packages.replace('\\r\\n', '  \\\n'))
+# packages = str(subprocess.run('pip list', capture_output=True))
+# st.markdown(packages.replace('\\r\\n', '  \\\n'))
 # st.title('Uber pickups in NYC')
 # st.write('Hello world!')
 
