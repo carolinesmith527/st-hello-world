@@ -31,7 +31,7 @@ def run_the_app():
             """
                 % e.reason
             )
-@st.cache()
+# @st.cache()
 st.markdown(
 """You can input a query or a question. The script then uses semantic search to find relevant passages in Simple English Wikipedia (as it is smaller and fits better in RAM).
 
