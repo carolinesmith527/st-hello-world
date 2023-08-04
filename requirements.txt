@@ -86,7 +86,6 @@ setuptools
 six
 smmap
 sqlalchemy
-streamlit
 sympy
 tenacity
 threadpoolctl
