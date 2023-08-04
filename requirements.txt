@@ -15,6 +15,7 @@ et-xmlfile==1.1.0
 gitdb==4.0.9
 GitPython==3.1.29
 hdbcli==2.14.23
+huggingface
 huggingface-hub
 idna==3.4
 importlib-metadata==5.0.0
@@ -53,6 +54,7 @@ smmap==5.0.0
 sparse-dot-topn==0.3.3
 streamlit==1.25.0
 tenacity==8.1.0
+tensorflow
 threadpoolctl==3.1.0
 toml==0.10.2
 toolz==0.12.0
