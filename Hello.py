@@ -66,7 +66,8 @@ import json
 import gzip
 import os
 # import torch
-import os, urllib, cv2
+import os, urllib
+# , cv2
 import streamlit as st
 st.markdown(
 """You can input a query or a question. The script then uses semantic search to find relevant passages in Simple English Wikipedia (as it is smaller and fits better in RAM).
