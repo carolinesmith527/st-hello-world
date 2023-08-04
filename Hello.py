@@ -21,6 +21,7 @@ def run_the_app():
         
         # load the dataset(knowledge base)
         embeddingsdf = pd.read_csv("./data/formatted_corpus.csv")
+        embeddingsdf = embeddingsdf.drop(columns='')
         st.write('## This is our Corpus:', embeddingsdf[:1000])
 
     except URLError as e:
