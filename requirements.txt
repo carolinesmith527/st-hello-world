@@ -2,3 +2,4 @@ streamlit
 pandas==1.1.1
 sentence-transformers
 torch
+torchvision
