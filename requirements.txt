@@ -4,4 +4,6 @@ plotly==5.11.0
 PyYAML==6.0
 streamlit==1.23.1
 sentence-transformers
+torch
+torchvision
 cv2
