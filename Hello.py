@@ -23,7 +23,7 @@ def run_the_app():
         embeddingsdf = pd.read_csv("./data/formatted_corpus.csv")
         st.write('## This is our Corpus:', embeddingsdf[:1000])
 
-    except URLError as e:
+    except urllib.URLError as e:
             st.error(
                 """
                 **This demo requires internet access.**
