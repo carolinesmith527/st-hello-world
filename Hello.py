@@ -96,7 +96,7 @@ if app_mode == "Show instructions":
 #     readme_text.empty()
 #     st.code(get_file_content_as_string("streamlit_app.py"))
 elif app_mode == "Run the app":
-    readme_text.empty()
+    # readme_text.empty()
     run_the_app()
       
 # This is the main app app itself, which appears when the user selects "Run the app".
