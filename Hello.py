@@ -75,14 +75,11 @@ def run_the_app():
     # To make Streamlit fast, st.cache allows us to reuse computation across runs.
     # In this common pattern, we download data from an endpoint only once.
     @st.cache()
-    
-    def load_metadata():
-        inputf = "https://github.com/carolinesmith527/st-hello-world/blob/983fd62f96da1a1ea2de1df428d8ee9a164f08d1/formatted_corpus.csv"
-        return pd.read_csv(inputf)
-    
+     
     # st.write('Importing Data...')
     try:
-        embeddingsdf = load_metadata()
+        # load the dataset(knowledge base)
+        embeddingsdf = pd.read_csv("./data/formatted_corpus.csv")
         st.write('## This is our Corpus:', embeddingsdf[:1000])
     except URLError as e:
             st.error(
@@ -109,6 +106,7 @@ Next, we use a more powerful CrossEncoder (cross_encoder = CrossEncoder('cross-e
 # Download external dependencies.
 # for filename in EXTERNAL_DEPENDENCIES.keys():
 #     download_file(filename)
+
 
 # Once we have the dependencies, add a selector for the app mode on the sidebar.
 st.sidebar.title("What to do")
