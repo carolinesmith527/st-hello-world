@@ -75,12 +75,12 @@ def run_the_app():
     # To make Streamlit fast, st.cache allows us to reuse computation across runs.
     # In this common pattern, we download data from an endpoint only once.
     @st.cache()
-     
     # st.write('Importing Data...')
     try:
         # load the dataset(knowledge base)
         embeddingsdf = pd.read_csv("./data/formatted_corpus.csv")
         st.write('## This is our Corpus:', embeddingsdf[:1000])
+        
     except URLError as e:
             st.error(
                 """
@@ -89,7 +89,7 @@ def run_the_app():
             """
                 % e.reason
             )
-        
+
 st.markdown(
 """You can input a query or a question. The script then uses semantic search to find relevant passages in Simple English Wikipedia (as it is smaller and fits better in RAM).
 
