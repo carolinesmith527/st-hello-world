@@ -16,7 +16,7 @@ gitdb==4.0.9
 GitPython==3.1.29
 hdbcli==2.14.23
 huggingface
-huggingface-hub
+huggingface_hub
 idna==3.4
 importlib-metadata==5.0.0
 Jinja2==3.1.2
@@ -48,6 +48,7 @@ scikit-learn
 scipy==1.11.1
 semver==2.13.0
 sentence-transformers
+sentence_transformers
 sentencepiece
 six==1.16.0
 smmap==5.0.0
