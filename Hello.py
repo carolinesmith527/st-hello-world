@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import csv
 import json
-# from sentence_transformers import SentenceTransformer, CrossEncoder, util
+from sentence_transformers import SentenceTransformer, CrossEncoder, util
 import gzip
 import os
 # import torch
