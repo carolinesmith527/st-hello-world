@@ -11,10 +11,11 @@ class CPU_Unpickler(pickle.Unpickler):
         if module == 'torch.storage' and name == '_load_from_bytes':
             return lambda b: torch.load(io.BytesIO(b), map_location='cpu')
         else:
-        return super().find_class(module, name)
+            return super().find_class(module, name)
 
 #contents = pickle.load(f) becomes...
 # contents = CPU_Unpickler(f).load()
+
 with open("./data/embeddings_090823.pkl", "rb") as f:
     corpus_embeddings = CPU_Unpickler(f).load()
 # corpus_embeddings=torch.load(embeddingspickle)
