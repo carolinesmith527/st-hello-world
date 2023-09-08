@@ -16,7 +16,7 @@ cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
 # encode queries from knowledge base to create corpus embeddings
 passages=dataset['Sentence'].tolist()
-corpus_embeddings = cross_encoder.encode(passages, convert_to_tensor=True, show_progress_bar=True)
+corpus_embeddings = bi_encoder.encode(passages, convert_to_tensor=True, show_progress_bar=True)
 
 # lets put it all together
 def get_query_responses(query, top_k=3):
