@@ -70,7 +70,7 @@ def get_query_responses(query, top_k):
     n=1
     for hit in hits[0:top_k]:
         # print("\t{:.3f}\t{}\t{}".format(, ,passages[hit['corpus_id']].replace("\n", " ")))
-        entry={n:{'score':hit['cross-score'],'true_id':dataset.iloc[hit['corpus_id'],2],'sentence':passages[hit['corpus_id']]}}
+        entry={n:{'score':hit['score'],'true_id':dataset.iloc[hit['corpus_id'],2],'sentence':passages[hit['corpus_id']]}}
         results_dict.update(entry)
         n+=1
     # use cosine-similarity and torch.topk to find the highest `top_k` scores
