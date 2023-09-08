@@ -24,7 +24,8 @@ with open("./data/embeddings_090823_v2.pkl", "rb") as f:
 dataset = pd.read_csv("./data/formatted_corpus.csv")
 
 # load a sentence-transformer model
-bi_encoder = SentenceTransformer('paraphrase-distilroberta-base-v1')
+# bi_encoder = SentenceTransformer('paraphrase-distilroberta-base-v1')
+bi_encoder = SentenceTransformer('msmarco-MiniLM-L-6-v3')
 bi_encoder.max_seq_length = 256     #Truncate long passages to 256 tokens
 top_k = 32                          #Number of passages we want to retrieve with the bi-encoder
 
