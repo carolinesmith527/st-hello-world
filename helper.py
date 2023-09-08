@@ -65,7 +65,7 @@ def get_query_responses(query, top_k):
     # Output of top-5 hits from re-ranker
     print("\n-------------------------\n")
     print("Top-3 Cross-Encoder Re-ranker hits")
-    hits = sorted(hits, key=lambda x: x['cross-score'], reverse=True)
+    hits = sorted(hits, key=lambda x: x['score'], reverse=True)
     results_dict = {}
     n=1
     for hit in hits[0:top_k]:
