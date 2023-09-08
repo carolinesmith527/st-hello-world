@@ -39,7 +39,8 @@ with form_expander:
 if submitted:
     # show the result response
     st.subheader("Result")
-    responses = helper.get_query_responses(query, top_k=1)
+    top_k=10
+    responses = helper.get_query_responses(query, top_k)
     st.json(responses)
     st.table(responses)
     st.subheader("Response")
