@@ -16,7 +16,7 @@ class CPU_Unpickler(pickle.Unpickler):
 #contents = pickle.load(f) becomes...
 # contents = CPU_Unpickler(f).load()
 
-with open("./data/embeddings_090823.pkl", "rb") as f:
+with open("./data/embeddings_090823_v2.pkl", "rb") as f:
     corpus_embeddings = CPU_Unpickler(f).load()
 # corpus_embeddings=torch.load(embeddingspickle)
 
