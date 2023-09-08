@@ -65,12 +65,12 @@ def get_query_responses(query, top_k):
     # Output of top-5 hits from re-ranker
     print("\n-------------------------\n")
     print("Top-3 Cross-Encoder Re-ranker hits")
-    hits = sorted(hits, key=lambda x: x['cross-score'], reverse=True)
+    hits = sorted(hits, key=lambda x: x['score'], reverse=True)
     results_dict = {}
     n=1
     for hit in hits[0:top_k]:
         # print("\t{:.3f}\t{}\t{}".format(, ,passages[hit['corpus_id']].replace("\n", " ")))
-        entry={n:{'score':hit['cross-score'],'true_id':dataset.iloc[hit['corpus_id'],2],'sentence':passages[hit['corpus_id']]}}
+        entry={n:{'score':hit['score'],'true_id':dataset.iloc[hit['corpus_id'],2],'sentence':passages[hit['corpus_id']]}}
         results_dict.update(entry)
         n+=1
     # use cosine-similarity and torch.topk to find the highest `top_k` scores
