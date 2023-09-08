@@ -19,7 +19,7 @@ passages=dataset['Sentence'].tolist()
 corpus_embeddings = bi_encoder.encode(passages, convert_to_tensor=True, show_progress_bar=True)
 
 # lets put it all together
-def get_query_responses(query, top_k=3):
+def get_query_responses(query, top_k):
     '''find the closest `top_k` queries of the corpus for the user query based on cosine similarity'''
     
     ##### Sematic Search #####
@@ -42,7 +42,7 @@ def get_query_responses(query, top_k=3):
     print("\n-------------------------\n")
     print("Top-3 Bi-Encoder Retrieval hits")
     hits = sorted(hits, key=lambda x: x['score'], reverse=True)
-    for hit in hits[0:15]:
+    for hit in hits[0:top_k]:
         print("\t{:.3f}\t{}\t{}".format(hit['score'], dataset.iloc[hit['corpus_id'],2],passages[hit['corpus_id']].replace("\n", " ")))
 
     # Output of top-5 hits from re-ranker
@@ -51,7 +51,7 @@ def get_query_responses(query, top_k=3):
     hits = sorted(hits, key=lambda x: x['cross-score'], reverse=True)
     results_dict = {}
     n=1
-    for hit in hits[0:15]:
+    for hit in hits[0:top_k]:
         # print("\t{:.3f}\t{}\t{}".format(, ,passages[hit['corpus_id']].replace("\n", " ")))
         entry={n:{'score':hit['cross-score'],'true_id':dataset.iloc[hit['corpus_id'],2],'sentence':passages[hit['corpus_id']]}}
         results_dict.update(entry)
