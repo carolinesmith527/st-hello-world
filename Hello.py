@@ -1,6 +1,6 @@
 import streamlit as st
 import helper
-
+import pandas as pd
 APP_NAME = "Smart Search!"
 
 st.set_page_config(
@@ -42,6 +42,7 @@ if submitted:
     top_k=10
     responses = helper.get_query_responses(query, top_k)
     st.json(responses)
-    st.table(responses)
+    responsesdf=pd.DataFrame.from_dict(responses,orient='index')
+    st.dataframe(responsesdf)
     st.subheader("Response")
-    st.success(f"Hello {name},\n{responses[0]['Response']}\nThanks")
+    # st.success(f"Hello {name},\n{responses[0]['Response']}\nThanks")
