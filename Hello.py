@@ -1,7 +1,7 @@
 import streamlit as st
 import helper
 
-APP_NAME = "Smart Contact Form!"
+APP_NAME = "Smart Search!"
 
 st.set_page_config(
     page_title=APP_NAME,
@@ -11,9 +11,9 @@ st.set_page_config(
 )
 
 st.sidebar.markdown("Made with love using [streamlit](https://streamlit.io/)")
-st.sidebar.image(
-    "images/contact.png"
-)
+# st.sidebar.image(
+#     "images/contact.png"
+# )
 
 st.sidebar.title(APP_NAME)
 
