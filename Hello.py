@@ -41,7 +41,7 @@ if submitted:
     st.subheader("Result")
     top_k=int(numresponses)
     responses = helper.get_query_responses(query, top_k)
-    st.json(responses)
+    # st.json(responses)
     responsesdf=pd.DataFrame.from_dict(responses,orient='index')
     st.dataframe(responsesdf)
     # st.success(f"Hello {name},\n{responses[0]['Response']}\nThanks")
