@@ -39,7 +39,7 @@ with form_expander:
 if submitted:
     # show the result response
     st.subheader("Result")
-    top_k=numresponses
+    top_k=int(numresponses)
     responses = helper.get_query_responses(query, top_k)
     st.json(responses)
     responsesdf=pd.DataFrame.from_dict(responses,orient='index')
