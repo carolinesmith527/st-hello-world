@@ -22,13 +22,12 @@ st.header(APP_NAME)
 form_expander = st.expander(label='Contact Form')
 with form_expander:
     sample_queries = [
-        "How to cancel my service?",
-        "new application",
-        "please send my bills"
+        "YMCA Garfield",
+        "company at address"
     ]       
     show = st.checkbox("Show Sample Queries")
     with st.form('Contact Form'):
-        name = st.text_input('Name: ')
+        # name = st.text_input('Name: ')
         numresponses = st.text_input('Number of responses:',value=10)
         if show:
             query = st.selectbox('Select Sample Query:', sample_queries, key=1)
