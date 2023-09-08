@@ -1,8 +1,11 @@
 # helper functions
-# import torch
+import torch
 import pandas as pd
 from sentence_transformers import SentenceTransformer, CrossEncoder, util
-
+import pickle
+with open("embeddings_090823.pkl", "rb") as f:
+    embeddingpickle = pickle.load(f)
+corpus_embeddings=torch.load(embeddingspickle)
 # load the dataset(knowledge base)
 dataset = pd.read_csv("./data/formatted_corpus.csv")
 
@@ -16,7 +19,7 @@ cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
 # encode queries from knowledge base to create corpus embeddings
 passages=dataset['Sentence'].tolist()
-corpus_embeddings = bi_encoder.encode(passages, convert_to_tensor=True, show_progress_bar=True)
+# corpus_embeddings = bi_encoder.encode(passages, convert_to_tensor=True, show_progress_bar=True)
 
 # lets put it all together
 def get_query_responses(query, top_k):
