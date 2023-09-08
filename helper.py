@@ -3,7 +3,7 @@ import torch
 import pandas as pd
 from sentence_transformers import SentenceTransformer, CrossEncoder, util
 import pickle
-with open("embeddings_090823.pkl", "rb") as f:
+with open("./data/embeddings_090823.pkl", "rb") as f:
     embeddingpickle = pickle.load(f)
 corpus_embeddings=torch.load(embeddingspickle)
 # load the dataset(knowledge base)
