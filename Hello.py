@@ -29,7 +29,7 @@ with form_expander:
     show = st.checkbox("Show Sample Queries")
     with st.form('Contact Form'):
         name = st.text_input('Name: ')
-        numresponses = st.text_input('Number of responses:')
+        numresponses = st.number_input('Number of responses:',value=10)
         if show:
             query = st.selectbox('Select Sample Query:', sample_queries, key=1)
         else:
