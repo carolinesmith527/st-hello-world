@@ -1,4 +1,4 @@
-fimport streamlit as st
+import streamlit as st
 import helper
 import pandas as pd
 APP_NAME = "Smart Search!"
