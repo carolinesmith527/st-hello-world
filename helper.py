@@ -4,8 +4,9 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer, CrossEncoder, util
 import pickle
 with open("./data/embeddings_090823.pkl", "rb") as f:
-    embeddingpickle = pickle.load(f)
-corpus_embeddings=torch.load(embeddingspickle)
+    corpus_embeddings = pickle.load(f)
+# corpus_embeddings=torch.load(embeddingspickle)
+
 # load the dataset(knowledge base)
 dataset = pd.read_csv("./data/formatted_corpus.csv")
 
