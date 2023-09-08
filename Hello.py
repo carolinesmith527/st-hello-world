@@ -1,4 +1,4 @@
-import streamlit as st
+fimport streamlit as st
 import helper
 import pandas as pd
 APP_NAME = "Smart Search!"
@@ -29,7 +29,7 @@ with form_expander:
     show = st.checkbox("Show Sample Queries")
     with st.form('Contact Form'):
         name = st.text_input('Name: ')
-        email = st.text_input('Email Address:')
+        numresponses = st.text_input('Number of responses:')
         if show:
             query = st.selectbox('Select Sample Query:', sample_queries, key=1)
         else:
@@ -39,10 +39,9 @@ with form_expander:
 if submitted:
     # show the result response
     st.subheader("Result")
-    top_k=10
+    top_k=numresponses
     responses = helper.get_query_responses(query, top_k)
     st.json(responses)
     responsesdf=pd.DataFrame.from_dict(responses,orient='index')
     st.dataframe(responsesdf)
-    st.subheader("Response")
     # st.success(f"Hello {name},\n{responses[0]['Response']}\nThanks")
