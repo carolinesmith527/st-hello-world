@@ -30,7 +30,7 @@ bi_encoder.max_seq_length = 256     #Truncate long passages to 256 tokens
 top_k = 32                          #Number of passages we want to retrieve with the bi-encoder
 
 #The bi-encoder will retrieve 100 documents. We use a cross-encoder, to re-rank the results list to improve the quality
-cross_encoder = CrossEncoder('cross-encoder/all-MiniLM-L12-v2')
+# cross_encoder = CrossEncoder('cross-encoder/all-MiniLM-L12-v2')
 
 # encode queries from knowledge base to create corpus embeddings
 passages=dataset['Sentence'].tolist()
@@ -49,12 +49,12 @@ def get_query_responses(query, top_k):
 
     ##### Re-Ranking #####
     # Now, score all retrieved passages with the cross_encoder
-    cross_inp = [[query, passages[hit['corpus_id']]] for hit in hits]
-    cross_scores = cross_encoder.predict(cross_inp)
+    # cross_inp = [[query, passages[hit['corpus_id']]] for hit in hits]
+    # cross_scores = cross_encoder.predict(cross_inp)
 
     # Sort results by the cross-encoder scores
-    for idx in range(len(cross_scores)):
-        hits[idx]['cross-score'] = cross_scores[idx]
+    # for idx in range(len(cross_scores)):
+        # hits[idx]['cross-score'] = cross_scores[idx]
 
     # Output of top-5 hits from bi-encoder
     print("\n-------------------------\n")
