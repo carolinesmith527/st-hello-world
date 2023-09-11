@@ -23,7 +23,7 @@ form_expander = st.expander(label='Contact Form')
 with form_expander:
     sample_queries = [
         "YMCA Garfield",
-        "company at address"
+        "YMCA Bowens"
     ]       
     show = st.checkbox("Show Sample Queries")
     with st.form('Contact Form'):
