@@ -32,7 +32,7 @@ with form_expander:
         if show:
             query = st.selectbox('Select Sample Query:', sample_queries, key=1)
         else:
-            query = st.text_input('Ask Query:', 'Pay Online')
+            query = st.text_input('Ask Query:', 'YMCA Garfield')
         submitted = st.form_submit_button('Submit')
 
 if submitted:
