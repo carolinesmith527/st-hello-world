@@ -25,12 +25,12 @@ dataset = pd.read_csv("./data/formatted_corpus.csv")
 
 # load a sentence-transformer model
 # bi_encoder = SentenceTransformer('paraphrase-distilroberta-base-v1')
-bi_encoder = SentenceTransformer('msmarco-MiniLM-L-6-v3')
+bi_encoder = SentenceTransformer('all-MiniLM-L12-v2')
 bi_encoder.max_seq_length = 256     #Truncate long passages to 256 tokens
 top_k = 32                          #Number of passages we want to retrieve with the bi-encoder
 
 #The bi-encoder will retrieve 100 documents. We use a cross-encoder, to re-rank the results list to improve the quality
-cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+cross_encoder = CrossEncoder('cross-encoder/all-MiniLM-L12-v2')
 
 # encode queries from knowledge base to create corpus embeddings
 passages=dataset['Sentence'].tolist()
