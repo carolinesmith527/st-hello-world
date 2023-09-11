@@ -16,12 +16,12 @@ class CPU_Unpickler(pickle.Unpickler):
 #contents = pickle.load(f) becomes...
 # contents = CPU_Unpickler(f).load()
 
-with open("./data/embeddings_090823_v2.pkl", "rb") as f:
+with open("./data/embeddings_091123_v2.pkl", "rb") as f:
     corpus_embeddings = CPU_Unpickler(f).load()
 # corpus_embeddings=torch.load(embeddingspickle)
 
 # load the dataset(knowledge base)
-dataset = pd.read_csv("./data/formatted_corpus.csv")
+dataset = pd.read_csv("./data/input_data_formatted_0911.tsv",sep='\t')
 
 # load a sentence-transformer model
 # bi_encoder = SentenceTransformer('paraphrase-distilroberta-base-v1')
